@@ -34,9 +34,11 @@ export default function Root() {
         <Nav />
         <div className="container mx-auto pt-4">
             <h1 className="text-3xl font-bold text-slate-800">The Planets of Star Wars</h1>
-            {planets.map((planet, index) => (
-                <PlanetGrid key={index} planet={planet} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
+                {planets.map((planet, index) => (
+                    <PlanetGrid key={index} planet={planet} />
+                ))}
+            </div>
         </div></>
     )
 }

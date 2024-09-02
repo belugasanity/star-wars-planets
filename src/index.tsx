@@ -11,6 +11,7 @@ import {
 /* existing imports */
 import Root from "./routes/root";
 import ErrorPage from './error-page';
+import Planet from './routes/planet';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />
   },
+  {
+    path: "planet/:planetId",
+    element: <Planet />,
+    errorElement: <ErrorPage />
+  }
 ]);
 
 const root = ReactDOM.createRoot(

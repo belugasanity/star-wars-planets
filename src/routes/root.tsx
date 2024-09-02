@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "../components/nav"
 import getPlanets from "../services/star-wars"
+import { Link } from "react-router-dom";
 
 export default function Root() {
     const [planets, setPlanets] = useState([]);
@@ -23,7 +24,9 @@ export default function Root() {
                     <p><span className="font-bold">Climate:</span> {planet.climate}</p>
                 </div>
                 <div className="content-center text-center">
-                    <button className="mx-auto px-4 py-2 bg-white text-slate-700 hover:text-slate-400 cursor-pointer rounded">View Residents</button>
+                    <Link to={`/planet/${planet.name}`} state={planet}>
+                        <button className="mx-auto px-4 py-2 bg-white text-slate-700 hover:text-slate-400 cursor-pointer rounded">View Residents</button>
+                    </Link>
                 </div>
             </div>
         );
@@ -34,6 +37,8 @@ export default function Root() {
         <Nav />
         <div className="container mx-auto pt-4">
             <h1 className="text-3xl font-bold text-slate-800">The Planets of Star Wars</h1>
+            {/* TODO: implement search */}
+            {/* TODO: implement bread crumbs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
                 {planets.map((planet, index) => (
                     <PlanetGrid key={index} planet={planet} />

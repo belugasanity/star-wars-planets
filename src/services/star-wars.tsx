@@ -20,3 +20,17 @@ export default async function getPlanets() {
         throw error;
     }
 }
+
+export async function getResidents(residents:any[]) {
+    let currentResidents: any[] = [];
+    try {
+        for (const resident of residents) {
+        const response = await axios.get(resident);
+        currentResidents.push(response.data);
+        }
+        return currentResidents;
+    } catch (error: any) {
+        console.error(`Error fetching residents: ${error.message}`);
+        throw error;
+    }
+}

@@ -19,12 +19,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: "planet/:planetId",
+    path: "planet/:planetName",
     element: <Planet />,
     errorElement: <ErrorPage />
   },
   {
-    path: "resident/:residentId",
+    path: "resident/:residentName",
     element: <Resident />,
     errorElement: <ErrorPage />
   }

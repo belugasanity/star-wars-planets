@@ -7,7 +7,6 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-/* existing imports */
 import Root from "./routes/root";
 import ErrorPage from './error-page';
 import Planet from './routes/planet';

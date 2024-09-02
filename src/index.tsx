@@ -12,6 +12,7 @@ import {
 import Root from "./routes/root";
 import ErrorPage from './error-page';
 import Planet from './routes/planet';
+import Resident from './routes/resident';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const router = createBrowserRouter([
   {
     path: "planet/:planetId",
     element: <Planet />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "resident/:residentId",
+    element: <Resident />,
     errorElement: <ErrorPage />
   }
 ]);

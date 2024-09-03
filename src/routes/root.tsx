@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Nav from "../components/nav"
 import getPlanets from "../services/star-wars"
 import { Link } from "react-router-dom";
-import Breadcrumbs from "../components/breadcrumbs";
+import Head from "../components/head";
 
 export default function Root() {
     const [planets, setPlanets] = useState([]);
@@ -42,9 +42,7 @@ export default function Root() {
         <>
         <Nav />
         <div className="container mx-auto pt-4">
-            <div className="flex flex-col p-4 bg-white rounded-lg border-solid border-2 border-slate-800">
-                <h1 className="text-3xl font-bold text-slate-800">The Planets of Star Wars</h1>
-            </div>
+            <Head title='The Planets of Star Wars' />
             <div className="my-4">
                 <input
                     type="text"

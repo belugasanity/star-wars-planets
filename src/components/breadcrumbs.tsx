@@ -10,17 +10,17 @@ export default function Breadcrumbs() {
                 const state1 = {resident: state.resident, planet: state.planet, breadcrumbs: [state.breadcrumbs[0]]}
                 return (
                     <>
-                    <Link to={'/'}>All Planets</Link>&nbsp; | &nbsp;
-                    <Link to={stateCrumbs[0].crumb} state={state1}>{decodeURIComponent(stateCrumbs[0].title)}</Link>&nbsp; | &nbsp;
-                    <Link to={stateCrumbs[1]} state={state}>{decodeURIComponent(stateCrumbs[1].title)}</Link>
+                    <Link className="hover:underline hover:text-slate-800" to={'/'}>All Planets</Link>&nbsp; | &nbsp;
+                    <Link className="hover:underline hover:text-slate-800" to={stateCrumbs[0].crumb} state={state1}>{decodeURIComponent(stateCrumbs[0].title)}</Link>&nbsp; | &nbsp;
+                    <Link className="hover:underline hover:text-slate-800" to={stateCrumbs[1]} state={state}>{decodeURIComponent(stateCrumbs[1].title)}</Link>
                     </>
                 )
             } else {
                 console.log(state);
                 return (
                     <>
-                    <Link to={'/'}>All Planets</Link>&nbsp; | &nbsp;
-                    <Link to={stateCrumbs[0].crumb} state={state}>{decodeURIComponent(stateCrumbs[0].title)}</Link>
+                    <Link className="hover:underline hover:text-slate-800" to={'/'}>All Planets</Link>&nbsp; | &nbsp;
+                    <Link className="hover:underline hover:text-slate-800" to={stateCrumbs[0].crumb} state={state}>{decodeURIComponent(stateCrumbs[0].title)}</Link>
                     </>
                 )
             }

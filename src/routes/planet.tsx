@@ -40,8 +40,12 @@ export default function Planet() {
         <>
         <Nav />
         <div className="container mx-auto pt-4">
-            <h1 className="text-3xl font-bold text-slate-800">Hello {state.name} Residents!</h1>
-                <Breadcrumbs />
+            <div className="flex flex-col p-4 bg-white rounded-lg border-solid border-2 border-slate-800">
+                <h1 className="text-3xl font-bold text-slate-800">Hello {state.name} Residents!</h1>
+                <div>
+                    <Breadcrumbs />
+                </div>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
                 {residents.map((resident, index) => (
                     <ResidentGrid key={index} resident={resident} />

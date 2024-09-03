@@ -6,6 +6,7 @@ import Breadcrumbs from "../components/breadcrumbs";
 
 export default function Root() {
     const [planets, setPlanets] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         async function _getPlanets() {
@@ -15,6 +16,10 @@ export default function Root() {
 
         _getPlanets();
     }, []);
+
+    const filterPlanets = planets.filter((planet: any) =>
+        planet.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     const PlanetGrid = ({ planet }: any) => {
         return (
@@ -38,12 +43,26 @@ export default function Root() {
         <Nav />
         <div className="container mx-auto pt-4">
             <h1 className="text-3xl font-bold text-slate-800">The Planets of Star Wars</h1>
-            {/* TODO: implement search */}
             <Breadcrumbs />
+            <div className="my-4">
+                <input
+                    type="text"
+                    placeholder="Search for a planet..."
+                    className="w-full p-2 border rounded-lg focus:outline-slate-400"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4">
-                {planets.map((planet, index) => (
-                    <PlanetGrid key={index} planet={planet} />
-                ))}
+                {filterPlanets.length > 0 ? (
+                    filterPlanets.map((planet, index) => (
+                        <PlanetGrid key={index} planet={planet} />
+                    ))
+                ) : (
+                    <p className="text-center col-span-2 text-slate-700">
+                        No planets match your search.
+                    </p>
+                )}
             </div>
         </div></>
     )

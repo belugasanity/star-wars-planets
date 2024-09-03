@@ -17,7 +17,7 @@ export default function Planet() {
         }
 
         _getResidents();
-    });
+    }, []);
 
     const ResidentGrid = ({ resident }: any) => {
         return (
